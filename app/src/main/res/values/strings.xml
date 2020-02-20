@@ -1,0 +1,84 @@
+<resources>
+    <string name="app_name">SKY LINK</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+
+
+        <string name="action_settings">Settings</string>
+        <string name="wait">Please Wait...</string>
+        <string name="ok">OK</string>
+        <string name="cancel">Cancel</string>
+
+
+        <string name="signup">Sign Up</string>
+        <string name="signin">Sign In</string>
+        <string name="login">Log In</string>
+
+        <string name="id_number">ID Number</string>
+        <string name="password">Password</string>
+        <string name="newuser">New User? Register</string>
+
+        <string name="email">Email</string>
+        <string name="phone_no">Phone Number (07...)</string>
+        <string name="retype_password">Confirm password</string>
+        <string name="existing">Existing User?</string>
+
+        <string name="contribution">Savings and  \n Contributions</string>
+        <string name="loans">Loans</string>
+        <string name="add_contribution">Add Contribution</string>
+        <string name="new_contribution">Add Contribution</string>
+        <string name="contribution_type">Contribution Type</string>
+        <string name="amount">Amount</string>
+        <string name="date">Date Created</string>
+        <string name="network_not_connected">No Internet Connection</string>
+        <string name="successful_add_savings">Successfully made your contribution</string>
+        <string name="successful_add_loans">Your loan application has been received successfully</string>
+        <string name="successful_add_payments">Your loan payment has been received successfully</string>
+        <string name="code">Mpesa Code</string>
+        <string name="requestloan">Request Loan</string>
+        <string name="payment_id">Payment Id</string>
+        <string name="new_payment">New Payment</string>
+        <string name="loan_type">Loan Type</string>
+        <string name="loanpayment">Loan Payment</string>
+        <string name="application">New User Application Form</string>
+        <string name="kin">Nominated Next Of Kin</string>
+        <string name="nextname">Full Name</string>
+        <string name="relation">Relationship</string>
+        <string name="dob">Date Of Birth</string>
+        <string name="amounttext">Amount To Be Deducted Monthly</string>
+        <string name="feed">Feedback</string>
+        <string name="skip">Skip</string>
+        <string name="network_error">Network error</string>
+        <string name="firstname">First Name</string>
+        <string name="lastname">Last Name</string>
+        <string name="username">Username</string>
+        <string name="phone">Phone Number</string>
+        <string name="next_of_kin">Next Of Kin</string>
+        <string name="withdraw">Withdrawals \n $  Balances</string>
+        <string name="withdraw_id">Withdraw Id</string>
+        <string name="newwithdraw">Withdraw</string>
+        <string name="new_withdraw">Cash withdraw</string>
+    <string name="Contributions">Contributions</string>
+    <string name="feedback">Feedback</string>
+    <string name="aboutus">About Us</string>
+
+    <string-array name="contribution_types">
+            <item>Education Fund</item>
+            <item>Children Fund</item>
+            <item>Christmas Fund</item>
+            <item>Leave Fund</item>
+            <item>Recreation Fund</item>
+            <item>Retirement Fund</item>
+        </string-array>
+
+    <string name="allaboutus">Sky Link is a group which was started in 2016 in Kisumu County, Kisumu East sub-county by a group of people whose main aim was to empower its’ members and to reduce the level of poverty among the members and if possible to eradicate it. The urge to create this group came after the members realized that the level of poverty was highly increasing among them and they noticed that the only way of fight it is to form a group which will help them to carry out actions which will lead to empowering the members.
+ Developing a mobile application for Sky Link group will enhance their operations. This will enable them to make better decisions and have competitive advantage over other groups.
+The following processes are performed in Sky Link. Registering new member. New member normally do registration by physically being in the meeting where they request to be a member of the group where upon being agreed, his/her details are captured and recorded in the group’s book where other members records are. After registration, the member starts attending the group meetings and carrying out the activities of the group.
+Members are contributing money when they attend meeting. The money contributed is in two categories that is shares and social. Shares is the members’ contribution which is he/she saves and accumulates interest. The savings of the members are given to them at the end of the year plus the interest they have accumulated. Social is the amount contributed for emergency and it is also used to for the organization of end year party.
+
+  </string>
+
+
+</resources>
