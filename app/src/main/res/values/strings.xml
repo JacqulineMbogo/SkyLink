@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SKY LINK</string>
+    <string name="app_name">SKY LINK TABLE BANKING</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
@@ -79,6 +79,9 @@ The following processes are performed in Sky Link. Registering new member. New m
 Members are contributing money when they attend meeting. The money contributed is in two categories that is shares and social. Shares is the members’ contribution which is he/she saves and accumulates interest. The savings of the members are given to them at the end of the year plus the interest they have accumulated. Social is the amount contributed for emergency and it is also used to for the organization of end year party.
 
   </string>
+    <string name="savings">Savings</string>
+    <string name="withdraws">Withdrawals</string>
+    <string name="logout">Log Out</string>
 
 
 </resources>

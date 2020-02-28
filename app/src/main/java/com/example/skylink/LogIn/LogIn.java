@@ -3,7 +3,9 @@ package com.example.skylink.LogIn;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -12,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.skylink.Contributions.contributions_home;
@@ -38,6 +41,7 @@ public class LogIn extends AppCompatActivity {
     SharedPreferenceActivity sharedPreferenceActivity;
 
     private String TAG = "LoginActivity";
+    int doubleBackToExitPressed = 1;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +53,8 @@ public class LogIn extends AppCompatActivity {
         this.setTitle("LogIn");
 
         sharedPreferenceActivity= new SharedPreferenceActivity(context);
+
+        sharedPreferenceActivity.cleaItem(Constant.USER_DATA);
         login_btn = findViewById(R.id.login_btn);
         signup_btn = findViewById(R.id.signup_btn);
 
@@ -155,4 +161,26 @@ public class LogIn extends AppCompatActivity {
 
 
     }
+
+
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressed == 2) {
+            finishAffinity();
+            System.exit(0);
+        }
+        else {
+            doubleBackToExitPressed++;
+            Toast.makeText(this, "Please press Back again to exit", Toast.LENGTH_SHORT).show();
+        }
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                doubleBackToExitPressed=1;
+            }
+        }, 2000);
+    }
+
 }

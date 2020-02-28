@@ -31,6 +31,8 @@
         <activity android:name=".MainActivity"/>
         <activity android:name=".Loans.loans_home"/>
         <activity android:name=".Contributions.contributions_home"/>
+        <activity android:name=".acount_home"/>
+        <activity android:name=".About"/>
     </application>
 
 
