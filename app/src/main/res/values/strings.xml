@@ -82,6 +82,8 @@ Members are contributing money when they attend meeting. The money contributed i
     <string name="savings">Savings</string>
     <string name="withdraws">Withdrawals</string>
     <string name="logout">Log Out</string>
+    <string name="notification">Notification</string>
+    <string name="notifications">Trainings Notifications</string>
 
 
 </resources>

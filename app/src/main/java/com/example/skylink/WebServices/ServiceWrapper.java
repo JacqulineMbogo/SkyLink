@@ -15,6 +15,7 @@ import com.example.skylink.beanResponse.NewLoanApplicationRes;
 import com.example.skylink.beanResponse.NewUserRegistration;
 import com.example.skylink.beanResponse.NextofKinRes;
 import com.example.skylink.beanResponse.SaveContributionRes;
+import com.example.skylink.beanResponse.TrainingRes;
 import com.example.skylink.beanResponse.UserSignInRes;
 import com.example.skylink.beanResponse.WithdrawRes;
 import com.example.skylink.beanResponse.feedbackAPI;
@@ -149,9 +150,15 @@ public class ServiceWrapper  {
     public Call<GetWithdrawalsRes> GetWithdrawalsResCall(String securecode, String user_id){
         return mServiceInterface.GetWithdrawalsResCall(convertPlainString(securecode), convertPlainString(user_id));
     }
+
     ///  get kin
     public Call<WithdrawRes> WithdrawResCall(String securecode, String amount, String user_id){
         return mServiceInterface.WithdrawResCall(convertPlainString(securecode), convertPlainString(amount),convertPlainString(user_id));
+    }
+
+    ///  get notification
+    public Call<TrainingRes> TrainingResCall(String securecode){
+        return mServiceInterface.TrainingResCall(convertPlainString(securecode));
     }
 
 }

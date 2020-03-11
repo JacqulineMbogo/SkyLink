@@ -14,6 +14,7 @@ import com.example.skylink.beanResponse.NewLoanApplicationRes;
 import com.example.skylink.beanResponse.NewUserRegistration;
 import com.example.skylink.beanResponse.NextofKinRes;
 import com.example.skylink.beanResponse.SaveContributionRes;
+import com.example.skylink.beanResponse.TrainingRes;
 import com.example.skylink.beanResponse.UserSignInRes;
 import com.example.skylink.beanResponse.WithdrawRes;
 import com.example.skylink.beanResponse.feedbackAPI;
@@ -181,6 +182,14 @@ public interface ServiceInterface {
             @Part("amount") RequestBody amount,
             @Part("user_id") RequestBody user_id
     );
+
+    @Multipart
+    @POST("sky_link1/app/get_notification.php")
+    Call<TrainingRes> TrainingResCall(
+            @Part("securecode") RequestBody securecode
+
+    );
+
 
 }
 
