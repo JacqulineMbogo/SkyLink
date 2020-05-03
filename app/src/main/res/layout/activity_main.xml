@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:orientation="vertical"
     tools:context=".MainActivity">
@@ -16,6 +23,7 @@
         android:layout_height="wrap_content"
         android:text="@string/logout"
         android:textColor="@color/black"
+        android:layout_marginTop="@dimen/padding_extralarge"
         android:drawableStart="@drawable/logout"
         android:layout_gravity="end"
         android:gravity="end"
@@ -30,8 +38,8 @@
         android:id="@+id/training"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_medium"
-    >
+        android:padding="@dimen/padding_medium">
+
         <TextView
             android:id="@+id/notification"
             android:layout_width="wrap_content"
@@ -39,7 +47,6 @@
             android:text="@string/notifications"
             android:textColor="@color/black"
             android:layout_gravity="start"
-
             android:gravity="start"
             android:padding="@dimen/padding_medium"
             android:textStyle="bold|italic"
@@ -249,6 +256,31 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/help"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="15dp"
+                android:layout_weight="2"
+                android:background="@drawable/circle"
+                android:drawableTop="@mipmap/baseline_hearing_black_24"
+                android:paddingTop="25dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/help"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+        </LinearLayout>
+
 
 
     </LinearLayout>
@@ -264,3 +296,5 @@
 
 
 </LinearLayout>
+
+</ScrollView>

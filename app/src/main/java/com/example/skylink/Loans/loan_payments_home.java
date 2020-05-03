@@ -57,6 +57,7 @@ public class loan_payments_home extends AppCompatActivity {
     SharedPreferenceActivity sharedPreferenceActivity;
     private  loan_payments_adapter  loan_payments_adapter;
     private ArrayList<loan_payment_model> loanPaymentModels= new ArrayList<>();
+    Integer msg;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -158,7 +159,7 @@ public class loan_payments_home extends AppCompatActivity {
 
                                 }else{
 
-                                    code.setError("Invalid code length. Should be 10 characters.");
+                                    code.setError("Invalid code length. Should be 10 characters. and numbers");
                                     code.requestFocus();
 
                                 }
@@ -272,19 +273,26 @@ public class loan_payments_home extends AppCompatActivity {
 
                             if (response.body().getInformation().size()>0){
 
-                                balance = Integer.valueOf(loan_amount) - Integer.valueOf(response.body().getMsg());
-                                overpaymnet = Integer.valueOf(response.body().getMsg()) - Integer.valueOf(loan_amount);
+                                if (response.body().getMsg() == null){
+
+                                    msg = 0;
+                                }else{
+
+                                    msg = Integer.valueOf(response.body().getMsg());
+                                }
+                                balance = Integer.valueOf(loan_amount) - msg;
+                                overpaymnet = msg- Integer.valueOf(loan_amount);
                                 progressbar.setVisibility(View.GONE);
 
                                         if(balance > 0) {
 
-                                    total_payments.setText("Total payments received for this loan  is Ksh " + response.body().getMsg() + " " +"Remaining balance is " + balance);
+                                    total_payments.setText("Total payments approved for this loan  is Ksh " + msg+ " " +"Remaining balance is " + balance);
                                                     }else if(balance<0 ){
 
-                                            total_payments.setText("Total payments received for this loan  is Ksh " + response.body().getMsg() +  " " + "You have an overpayment of " + overpaymnet);
+                                            total_payments.setText("Total payments approved for this loan  is Ksh " + response.body().getMsg() +  " " + "You have an overpayment of " + overpaymnet);
                                         }else {
 
-                                            total_payments.setText("Total payments received for this loan  is Ksh " + response.body().getMsg() + " " +"Your loan is fully settled");
+                                            total_payments.setText("Total payments approved for this loan  is Ksh " + response.body().getMsg() + " " +"Your loan is fully settled");
 
                                         }
 
@@ -292,7 +300,7 @@ public class loan_payments_home extends AppCompatActivity {
                                 for (int i =0; i<response.body().getInformation().size(); i++){
 
 
-                                    loanPaymentModels.add(  new loan_payment_model(response.body().getInformation().get(i).getPaymentId(),response.body().getInformation().get(i).getPaymentAmount(),response.body().getInformation().get(i).getCreateDate(),response.body().getInformation().get(i).getStatus()));
+                                    loanPaymentModels.add(  new loan_payment_model(response.body().getInformation().get(i).getPaymentId(),response.body().getInformation().get(i).getPaymentAmount(),response.body().getInformation().get(i).getCreateDate(),response.body().getInformation().get(i).getStatus(), response.body().getInformation().get(i).getComment()));
 
                                 }
                                 loan_payments_adapter.notifyDataSetChanged();

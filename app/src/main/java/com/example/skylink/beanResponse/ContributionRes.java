@@ -55,7 +55,28 @@ public class ContributionRes {
         @SerializedName("contribution_type_id")
         @Expose
         private String contributionTypeId;
+        @SerializedName("status")
+        @Expose
+        private String status;
+        @SerializedName("comments")
+        @Expose
+        private String comments;
 
+        public String getStatus() {
+            return status;
+        }
+
+        public void setStatus(String status) {
+            this.status = status;
+        }
+
+        public String getComments() {
+            return comments;
+        }
+
+        public void setComments(String comments) {
+            this.comments = comments;
+        }
 
         public String getContributionId() {
             return contributionId;

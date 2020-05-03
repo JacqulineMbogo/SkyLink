@@ -2,13 +2,22 @@ package com.example.skylink.Loans;
 
 public class loan_payment_model {
 
-    private String payment_id, payment_amount, create_date, status;
+    private String payment_id, payment_amount, create_date, status,comment;
 
-    public loan_payment_model(String payment_id, String payment_amount, String create_date, String status) {
+    public loan_payment_model(String payment_id, String payment_amount, String create_date, String status,String comment) {
         this.payment_id = payment_id;
         this.payment_amount = payment_amount;
         this.create_date = create_date;
         this.status = status;
+        this.comment = comment;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 
     public void setPayment_id(String payment_id) {

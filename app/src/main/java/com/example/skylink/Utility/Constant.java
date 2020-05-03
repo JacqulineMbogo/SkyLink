@@ -16,7 +16,7 @@ public class Constant {
     public static final String LAST_NAME = "LAST_NAME";
     public static final  String TOTAL_CONTRIBUTIONS = "TOTAL CONTRIBUTIONS";
     public static final  String TOTAL_WITHDRAWALS= "TOTAL WITHDRAWALS";
-    public static final  String TOTAL_LOANS = "TOTAL CONTRIBUTIONS";
+    public static final  String TOTAL_LOANS = "TOTAL LOANS";
 
     public static final String USER_staffDATA = "USER_staffDATA";
     public static final String admin_USER_DATA = "admin_USER_DATA";

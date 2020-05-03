@@ -55,6 +55,17 @@ public class LoanPaymentsRes {
         @SerializedName("status")
         @Expose
         private String status;
+        @SerializedName("comment")
+        @Expose
+        private String comment;
+
+        public String getComment() {
+            return comment;
+        }
+
+        public void setComment(String comment) {
+            this.comment = comment;
+        }
 
         public String getPaymentId() {
             return paymentId;

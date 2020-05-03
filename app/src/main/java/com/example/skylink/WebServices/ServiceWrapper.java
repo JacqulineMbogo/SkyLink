@@ -96,8 +96,8 @@ public class ServiceWrapper  {
     }
 
     ///  get all loan types
-    public Call<LoanTypeRes> LoanTypeCall(String securecode){
-        return mServiceInterface.LoanTypeCall(convertPlainString(securecode));
+    public Call<LoanTypeRes> LoanTypeCall(String securecode, String user_id){
+        return mServiceInterface.LoanTypeCall(convertPlainString(securecode), convertPlainString(user_id));
     }
 
 

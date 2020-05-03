@@ -30,7 +30,7 @@ public class loan_payments_adapter extends RecyclerView.Adapter<RecyclerView.Vie
 
     private class paymentsView extends RecyclerView.ViewHolder {
 
-        TextView payment_id, amount, payment_date;
+        TextView payment_id, amount, payment_date, status, comment;
 
 
         public paymentsView(View itemView) {
@@ -39,6 +39,8 @@ public class loan_payments_adapter extends RecyclerView.Adapter<RecyclerView.Vie
             payment_id =  itemView.findViewById(R.id.payment_id);
             amount =  itemView.findViewById(R.id.amount);
             payment_date =  itemView.findViewById(R.id.contribution_date);
+            status = itemView.findViewById(R.id.status);
+            comment = itemView.findViewById(R.id.comment);
 
         }
     }
@@ -60,6 +62,8 @@ public class loan_payments_adapter extends RecyclerView.Adapter<RecyclerView.Vie
         ((paymentsView) holder).payment_id.setText(model.getPayment_id());
         ((paymentsView) holder).amount.setText(model.getPayment_amount());
         ((paymentsView) holder).payment_date.setText(model.getCreate_date());
+        ((paymentsView) holder).status.setText(model.getStatus());
+        ((paymentsView) holder).comment.setText(model.getComment());
 
 
     }

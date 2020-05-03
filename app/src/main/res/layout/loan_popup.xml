@@ -18,6 +18,7 @@
 
 
     <LinearLayout
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/padding_large"
@@ -44,7 +45,35 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/padding_large"
+        android:padding="@dimen/padding_medium"
+        android:orientation="horizontal"
+        >
+        <TextView
 
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/loanlimit"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="bold"
+            />
+        <TextView
+
+             android:id="@+id/loanlimit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+             android:layout_weight="1"
+            android:textColor="@color/black"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="bold"
+            />
+
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

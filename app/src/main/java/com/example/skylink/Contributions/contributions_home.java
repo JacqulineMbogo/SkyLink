@@ -257,7 +257,7 @@ public class contributions_home extends AppCompatActivity {
 
                                 }else{
 
-                                    code.setError("Invalid code length. Should be 10 characters.");
+                                    code.setError("Invalid code length. Should be 10 characters and numbers.");
                                     code.requestFocus();
 
                                 }
@@ -320,7 +320,7 @@ public class contributions_home extends AppCompatActivity {
 
                                 progressbar.setVisibility(View.GONE);
 
-                                total_amount.setText("Total contribution amount is Ksh " + response.body().getMsg() );
+                                total_amount.setText("Total  Approved contribution amount is Ksh " + response.body().getMsg() );
 
                                 sharedPreferenceActivity.putItem(Constant.TOTAL_CONTRIBUTIONS, response.body().getMsg());
                                contributionsModels.clear();
@@ -329,7 +329,7 @@ public class contributions_home extends AppCompatActivity {
                                 for (int i =0; i<response.body().getInformation().size(); i++){
 
 
-                                    contributionsModels.add(  new contributions_model(response.body().getInformation().get(i).getContributionId(),response.body().getInformation().get(i).getAmount(),response.body().getInformation().get(i).getContributionDate(),response.body().getInformation().get(i).getContributionTypeId()));
+                                    contributionsModels.add(  new contributions_model(response.body().getInformation().get(i).getContributionId(),response.body().getInformation().get(i).getAmount(),response.body().getInformation().get(i).getContributionDate(),response.body().getInformation().get(i).getContributionTypeId(),response.body().getInformation().get(i).getStatus(),response.body().getInformation().get(i).getComments()));
                                     Log.d("model",response.body().getInformation().get(i).getContributionId() );
 
 

@@ -36,8 +36,8 @@
                     android:gravity="center_vertical"
                     android:padding= "@dimen/padding_medium"
                     android:textColor="@android:color/black"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textStyle="normal|bold"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="normal"
                     android:typeface="serif" />
 
                 <TextView
@@ -69,7 +69,7 @@
                     android:gravity="center_vertical"
                     android:minWidth="50dp"
                     android:minHeight="40dp"
-                     android:textColor="@android:color/black"
+                    android:textColor="@android:color/black"
                     android:padding= "@dimen/padding_medium"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textStyle="normal"
@@ -96,6 +96,21 @@
 
                 <TextView
                     android:id="@+id/status"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:minWidth="50dp"
+                    android:minHeight="40dp"
+                    android:textColor="@color/colorAccent"
+                    android:padding= "@dimen/padding_medium"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="bold"
+                    android:typeface="serif" />
+
+                <TextView
+                    android:id="@+id/comment"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"

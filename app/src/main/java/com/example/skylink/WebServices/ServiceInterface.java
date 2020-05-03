@@ -80,7 +80,8 @@ public interface ServiceInterface {
     @Multipart
     @POST("sky_link1/app/get_loan_types.php")
     Call<LoanTypeRes> LoanTypeCall(
-            @Part("securecode") RequestBody securecode
+            @Part("securecode") RequestBody securecode,
+            @Part("user_id") RequestBody user_id
 
     );
 

@@ -2,6 +2,7 @@ package com.example.skylink.Loans;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -38,6 +39,8 @@ import com.example.skylink.beanResponse.NewLoanApplicationRes;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 import retrofit2.Call;
@@ -53,6 +56,7 @@ public class loans_home extends AppCompatActivity {
     ProgressBar progressbar;
     String TAG = "loans";
     String pin, counts;
+    int loanlimits, msg;
     SharedPreferenceActivity sharedPreferenceActivity;
     private  loans_adapter loans_adapter;
     private ArrayList<loans_model> loansModels = new ArrayList<>();
@@ -118,6 +122,7 @@ public class loans_home extends AppCompatActivity {
                 final Button cancel = view.findViewById(R.id.cancel);
                 final Button okay = view.findViewById(R.id.ok);
                 final Spinner loanspinner  = view.findViewById(R.id.loantypespinner);
+                 final TextView loanlimit = view.findViewById(R.id.loanlimit);
 
 
                 if (!NetworkUtility.isNetworkConnected(loans_home.this)) {
@@ -129,7 +134,7 @@ public class loans_home extends AppCompatActivity {
                     progressbar.setVisibility(View.GONE);
                     //  Log.e(TAG, "  user value "+ SharePreferenceUtils.getInstance().getString(Constant.USER_DATA));
                     ServiceWrapper service = new ServiceWrapper(null);
-                    Call<LoanTypeRes> call = service.LoanTypeCall("1234");
+                    Call<LoanTypeRes> call = service.LoanTypeCall("1234", sharedPreferenceActivity.getItem(Constant.USER_DATA));
 
 
                     call.enqueue(new Callback<LoanTypeRes>() {
@@ -140,8 +145,19 @@ public class loans_home extends AppCompatActivity {
                             if (response.body() != null && response.isSuccessful()) {
                                 Log.e(TAG, "  ss sixe 2 ");
                                 if (response.body().getStatus() == 1) {
-                                    Log.e(TAG, "  ss sixe 3 ");
 
+                                    if (response.body().getMsg()  == null){
+
+                                        msg = 0;
+                                    }else{
+
+                                        msg = Integer.valueOf(response.body().getMsg());
+                                    }
+
+                                    loanlimits = msg * 3;
+
+                                    Log.e("limits", String.valueOf(loanlimits));
+                                    loanlimit.setText(String.valueOf(loanlimits));
                                     loanTypeModels.clear();
                                     if (response.body().getInformation().size()>0){
 
@@ -221,15 +237,15 @@ public class loans_home extends AppCompatActivity {
 
 
                             Toast.makeText(context, "Enter a value", Toast.LENGTH_SHORT).show();
-                        }/*else {
+                        }else {
 
-                            if (Integer.valueOf(s.toString()) > Integer.valueOf(sharedPreferenceActivity.getItem(Constant.TOTAL_CONTRIBUTIONS))) {
+                            if (Integer.valueOf(s.toString()) > loanlimits) {
 
 
-                                AppUtilits.displayMessage(loans_home.this, "Maximum amount you can borrow is Ksh" + " " + sharedPreferenceActivity.getItem(Constant.TOTAL_CONTRIBUTIONS));
+                                AppUtilits.displayMessage(loans_home.this, "Maximum amount you can borrow is Ksh" + " " + String.valueOf(loanlimits));
                                 amount.setText("0");
                             }
-                        }*/
+                        }
 
 
                     }
@@ -238,8 +254,15 @@ public class loans_home extends AppCompatActivity {
                 okay.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        saveLoanApplication(counts, amount.getText().toString());
-                        dialog.cancel();
+
+                        if(amount.getText().toString().equals("")){
+
+                            Toast.makeText(context, "Enter amount value", Toast.LENGTH_SHORT).show();
+                        }else {
+
+                            saveLoanApplication(counts, amount.getText().toString());
+                            dialog.cancel();
+                        }
                     }
                 });
                 cancel.setOnClickListener(new View.OnClickListener() {
@@ -265,7 +288,7 @@ public class loans_home extends AppCompatActivity {
 
             //  Log.e(TAG, "  user value "+ SharePreferenceUtils.getInstance().getString(Constant.USER_DATA));
             ServiceWrapper service = new ServiceWrapper(null);
-            Call<NewLoanApplicationRes> call = service.SaveNewLoanCall("12345", loantype,amount, sharedPreferenceActivity.getItem(Constant.USER_DATA));
+            Call<NewLoanApplicationRes> call = service.SaveNewLoanCall("12345", "2",amount, sharedPreferenceActivity.getItem(Constant.USER_DATA));
             call.enqueue(new Callback<NewLoanApplicationRes>() {
                 @Override
                 public void onResponse(Call<NewLoanApplicationRes> call, Response<NewLoanApplicationRes> response) {
@@ -339,7 +362,7 @@ public class loans_home extends AppCompatActivity {
                                 for (int i =0; i<response.body().getInformation().size(); i++){
 
 
-                                    loansModels.add(  new loans_model(response.body().getInformation().get(i).getApplicationId(),response.body().getInformation().get(i).getAmount(),response.body().getInformation().get(i).getDate(),response.body().getInformation().get(i).getStatus(),response.body().getInformation().get(i).getLoanId() ));
+                                    loansModels.add(  new loans_model(response.body().getInformation().get(i).getApplicationId(),response.body().getInformation().get(i).getAmount(),response.body().getInformation().get(i).getDate(),response.body().getInformation().get(i).getStatus(),response.body().getInformation().get(i).getLoanId(),response.body().getInformation().get(i).getComment() ));
 
                                 }
                                loans_adapter.notifyDataSetChanged();

@@ -31,7 +31,7 @@ public class contributions_adapter  extends RecyclerView.Adapter<RecyclerView.Vi
 
     private class contributionsView extends RecyclerView.ViewHolder {
 
-        TextView contribution_type, amount, contribution_date,contribution_id;
+        TextView contribution_type, amount, contribution_date,contribution_id, status, comments;
 
 
         public contributionsView(View itemView) {
@@ -40,6 +40,8 @@ public class contributions_adapter  extends RecyclerView.Adapter<RecyclerView.Vi
             contribution_type =  itemView.findViewById(R.id.contribution_type);
             amount =  itemView.findViewById(R.id.amount);
             contribution_date =  itemView.findViewById(R.id.contribution_date);
+            status = itemView.findViewById(R.id.status);
+            comments = itemView.findViewById(R.id.comments);
 
         }
     }
@@ -59,6 +61,8 @@ public class contributions_adapter  extends RecyclerView.Adapter<RecyclerView.Vi
         ((contributionsView) holder).contribution_type.setText(model.getContribution_type_id());
         ((contributionsView) holder).amount.setText(model.getAmount());
         ((contributionsView) holder).contribution_date.setText(model.getContribution_date());
+        ((contributionsView) holder).status.setText(model.getStatus());
+        ((contributionsView) holder).comments.setText(model.getComments());
 
 
 
