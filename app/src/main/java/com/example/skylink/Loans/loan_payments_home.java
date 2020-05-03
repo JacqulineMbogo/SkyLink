@@ -47,7 +47,7 @@ public class loan_payments_home extends AppCompatActivity {
 
     Context context;
     String application_id, loan_amount;
-    Integer balance, overpaymnet;
+    Double  overpaymnet;
 
     RecyclerView loanpayments_recycler;
     TextView total_payments;
@@ -57,7 +57,7 @@ public class loan_payments_home extends AppCompatActivity {
     SharedPreferenceActivity sharedPreferenceActivity;
     private  loan_payments_adapter  loan_payments_adapter;
     private ArrayList<loan_payment_model> loanPaymentModels= new ArrayList<>();
-    Integer msg;
+    Double  balance, msg;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -275,13 +275,13 @@ public class loan_payments_home extends AppCompatActivity {
 
                                 if (response.body().getMsg() == null){
 
-                                    msg = 0;
+                                    msg = 0.0;
                                 }else{
 
-                                    msg = Integer.valueOf(response.body().getMsg());
+                                    msg = Double.valueOf(response.body().getMsg());
                                 }
-                                balance = Integer.valueOf(loan_amount) - msg;
-                                overpaymnet = msg- Integer.valueOf(loan_amount);
+                                balance = Double.valueOf(loan_amount) - msg;
+                                overpaymnet = msg- Double.valueOf(loan_amount);
                                 progressbar.setVisibility(View.GONE);
 
                                         if(balance > 0) {

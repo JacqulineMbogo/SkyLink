@@ -65,7 +65,7 @@ public class loans_adapter  extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
         ((loansView) holder).application_id.setText(" Application Id: " + " " + model.getApplication_id());
         ((loansView) holder).amount.setText(" Amount: " + " " +model.getAmount());
-        ((loansView) holder).loan_type.setText(" Loan Type: " + " " +model.getLoan_id());
+        ((loansView) holder).loan_type.setText("Duration: " + " " +model.getDuration());
         ((loansView) holder).application_date.setText(" Date Applied: " + " " +model.getDate());
         ((loansView) holder).status.setText(" Status: " + " " +model.getStatus());
         ((loansView) holder).comment.setText(model.getComment());

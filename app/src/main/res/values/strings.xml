@@ -106,6 +106,7 @@ HELP
 	You can borrow three times the amount of shares you have contributed.
 	To repay the loan go to loan and click on loan repayment and do the payment.
 </string>
+    <string name="duration">Duration(Months)</string>
 
 
 

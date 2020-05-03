@@ -61,6 +61,17 @@ public class LoansApplicationRes {
         @SerializedName("comment")
         @Expose
         private String comment;
+        @SerializedName("duration")
+        @Expose
+        private String duration;
+
+        public String getDuration() {
+            return duration;
+        }
+
+        public void setDuration(String duration) {
+            this.duration = duration;
+        }
 
         public String getComment() {
             return comment;
