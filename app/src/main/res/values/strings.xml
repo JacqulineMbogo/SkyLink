@@ -44,6 +44,7 @@
         <string name="new_payment">New Payment</string>
         <string name="loan_type">Loan Type</string>
         <string name="loanpayment">Loan Payment</string>
+        <string name="balances">Balance</string>
         <string name="application">New User Application Form</string>
         <string name="kin">Nominated Next Of Kin</string>
         <string name="nextname">Full Name</string>
@@ -107,6 +108,7 @@ HELP
 	To repay the loan go to loan and click on loan repayment and do the payment.
 </string>
     <string name="duration">Duration(Months)</string>
+
 
 
 
