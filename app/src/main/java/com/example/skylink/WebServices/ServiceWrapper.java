@@ -112,8 +112,8 @@ public class ServiceWrapper  {
     }
 
     ///  new loan
-    public Call<NewLoanApplicationRes> SaveNewLoanCall(String securecode, String loan_type_id, String amount, String user_id,String duration,String total){
-        return mServiceInterface.SaveNewLoanCall(convertPlainString(securecode),convertPlainString(loan_type_id),convertPlainString(amount), convertPlainString(user_id),convertPlainString(duration),convertPlainString(total));
+    public Call<NewLoanApplicationRes> SaveNewLoanCall(String securecode, String loan_type_id, String amount, String user_id,String duration,String total,String monthly){
+        return mServiceInterface.SaveNewLoanCall(convertPlainString(securecode),convertPlainString(loan_type_id),convertPlainString(amount), convertPlainString(user_id),convertPlainString(duration),convertPlainString(total),convertPlainString(monthly));
     }
 
     ///  make loan payment

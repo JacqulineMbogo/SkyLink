@@ -2,9 +2,9 @@ package com.example.skylink.Loans;
 
 public class loans_model {
 
-    private  String  application_id, amount, date,status, loan_id, comment,duration;
+    private  String  application_id, amount, date,status, loan_id, comment,duration,monthly;
 
-    public loans_model(String application_id, String amount, String date, String status, String loan_id, String comment,String duration) {
+    public loans_model(String application_id, String amount, String date, String status, String loan_id, String comment,String duration,String monthly) {
         this.application_id = application_id;
         this.amount = amount;
         this.date = date;
@@ -12,6 +12,15 @@ public class loans_model {
         this.loan_id = loan_id;
         this.comment = comment;
         this.duration = duration;
+        this.monthly = monthly;
+    }
+
+    public String getMonthly() {
+        return monthly;
+    }
+
+    public void setMonthly(String monthly) {
+        this.monthly = monthly;
     }
 
     public String getDuration() {

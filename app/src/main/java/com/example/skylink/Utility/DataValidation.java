@@ -15,7 +15,7 @@ public class DataValidation  {
     public static String PERSON_FULLNAME= "[a-z0-9A-Z ]*";
     public static String ADDRESS= "[a-zA-Z.+-,0-9 ]*";
     public static String PHONE_NUMBER= "[0-9]*";
-    public static String CODE= "[a-zA-Z.+-,0-9 ]*";
+    public static String CODE= "([A-Za-z]+[0-9]|[0-9]+[A-Za-z])[A-Za-z0-9]*";
     public static String ID_NUMBER = "[0-9]*";
 
     public static String EMAIL = "[a-z0-9._-]+@[a-z]+\\.+[a-z]+";

@@ -111,7 +111,8 @@ public interface ServiceInterface {
             @Part("amount") RequestBody amount,
             @Part("user_id") RequestBody user_id,
             @Part("duration") RequestBody duration,
-            @Part("total") RequestBody total
+            @Part("total") RequestBody total,
+            @Part("monthly") RequestBody monthly
 
     );
 

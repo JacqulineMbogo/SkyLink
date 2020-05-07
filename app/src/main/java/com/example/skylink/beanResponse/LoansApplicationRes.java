@@ -65,6 +65,18 @@ public class LoansApplicationRes {
         @Expose
         private String duration;
 
+        @SerializedName("monthly")
+        @Expose
+        private String monthly;
+
+        public String getMonthly() {
+            return monthly;
+        }
+
+        public void setMonthly(String monthly) {
+            this.monthly = monthly;
+        }
+
         public String getDuration() {
             return duration;
         }

@@ -57,7 +57,7 @@ public class loans_home extends AppCompatActivity {
     String TAG = "loans";
     String pin, counts,time;
     int loanlimits, msg;
-    public double  interests,rate;
+    public double  interests,rate, monthly;
     SharedPreferenceActivity sharedPreferenceActivity;
     private  loans_adapter loans_adapter;
     private ArrayList<loans_model> loansModels = new ArrayList<>();
@@ -250,8 +250,10 @@ public class loans_home extends AppCompatActivity {
                                 duration.setText(time);
                             }else{
 
-                                interests = (Integer.valueOf(amount.getText().toString()) * ( Integer.valueOf(duration.getText().toString()) * rate )) + Integer.valueOf(amount.getText().toString());
-                                interest.setText("Tolal loan amount to be paid is"+" " +interests);
+                               // interests = (Integer.valueOf(amount.getText().toString()) * ( Integer.valueOf(duration.getText().toString()) * rate )) + Integer.valueOf(amount.getText().toString());
+                                interests = (Integer.valueOf(amount.getText().toString()) *  rate ) + Integer.valueOf(amount.getText().toString());
+                                monthly = interests / Integer.valueOf(duration.getText().toString());
+                                interest.setText("Tolal loan amount to be paid is"+" " +interests +" " + "Montly payment of " + monthly);
                             }
                         }
                     }
@@ -300,7 +302,7 @@ public class loans_home extends AppCompatActivity {
                             Toast.makeText(context, "Enter amount value", Toast.LENGTH_SHORT).show();
                         }else {
 
-                            saveLoanApplication(counts, amount.getText().toString(),duration.getText().toString(), String.valueOf(interests));
+                            saveLoanApplication(counts, amount.getText().toString(),duration.getText().toString(), String.valueOf(interests), String.valueOf(monthly));
                             dialog.cancel();
                         }
                     }
@@ -319,7 +321,7 @@ public class loans_home extends AppCompatActivity {
 
     }
 
-    public void saveLoanApplication(String loantype, String amount, String duration, String interest){
+    public void saveLoanApplication(String loantype, String amount, String duration, String interest, String monthly){
 
         if (!NetworkUtility.isNetworkConnected(loans_home.this)){
             AppUtilits.displayMessage(loans_home.this,  getString(R.string.network_not_connected));
@@ -328,7 +330,7 @@ public class loans_home extends AppCompatActivity {
 
             //  Log.e(TAG, "  user value "+ SharePreferenceUtils.getInstance().getString(Constant.USER_DATA));
             ServiceWrapper service = new ServiceWrapper(null);
-            Call<NewLoanApplicationRes> call = service.SaveNewLoanCall("12345", "2",amount, sharedPreferenceActivity.getItem(Constant.USER_DATA),duration,interest);
+            Call<NewLoanApplicationRes> call = service.SaveNewLoanCall("12345", "2",amount, sharedPreferenceActivity.getItem(Constant.USER_DATA),duration,interest,monthly);
             call.enqueue(new Callback<NewLoanApplicationRes>() {
                 @Override
                 public void onResponse(Call<NewLoanApplicationRes> call, Response<NewLoanApplicationRes> response) {
@@ -406,7 +408,7 @@ public class loans_home extends AppCompatActivity {
                                 for (int i =0; i<response.body().getInformation().size(); i++){
 
 
-                                    loansModels.add(  new loans_model(response.body().getInformation().get(i).getApplicationId(),response.body().getInformation().get(i).getAmount(),response.body().getInformation().get(i).getDate(),response.body().getInformation().get(i).getStatus(),response.body().getInformation().get(i).getLoanId(),response.body().getInformation().get(i).getComment(),response.body().getInformation().get(i).getDuration() ));
+                                    loansModels.add(  new loans_model(response.body().getInformation().get(i).getApplicationId(),response.body().getInformation().get(i).getAmount(),response.body().getInformation().get(i).getDate(),response.body().getInformation().get(i).getStatus(),response.body().getInformation().get(i).getLoanId(),response.body().getInformation().get(i).getComment(),response.body().getInformation().get(i).getDuration() ,response.body().getInformation().get(i).getMonthly()));
 
                                 }
                                loans_adapter.notifyDataSetChanged();

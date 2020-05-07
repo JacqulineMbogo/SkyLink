@@ -159,7 +159,7 @@ public class loan_payments_home extends AppCompatActivity {
 
                                 }else{
 
-                                    code.setError("Invalid code length. Should be 10 characters. and numbers");
+                                    code.setError("Invalid code length. Should be 10 characters and at least one number.");
                                     code.requestFocus();
 
                                 }

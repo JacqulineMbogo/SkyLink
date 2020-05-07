@@ -33,7 +33,7 @@ public class loans_adapter  extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     private class loansView extends RecyclerView.ViewHolder {
 
-        TextView application_id,loan_type, amount,application_date,status,comment;
+        TextView application_id,loan_type, amount,application_date,status,comment,monthly;
         CardView loancard;
 
 
@@ -46,6 +46,7 @@ public class loans_adapter  extends RecyclerView.Adapter<RecyclerView.ViewHolder
             application_date =  itemView.findViewById(R.id.loandate);
             loancard = itemView.findViewById(R.id.loancard);
             status = itemView.findViewById(R.id.status);
+            monthly = itemView.findViewById(R.id.monthly);
             comment = itemView.findViewById(R.id.comment);
 
         }
@@ -66,8 +67,9 @@ public class loans_adapter  extends RecyclerView.Adapter<RecyclerView.ViewHolder
         ((loansView) holder).application_id.setText(" Application Id: " + " " + model.getApplication_id());
         ((loansView) holder).amount.setText(" Amount: " + " " +model.getAmount());
         ((loansView) holder).loan_type.setText("Duration: " + " " +model.getDuration());
-        ((loansView) holder).application_date.setText(" Date Applied: " + " " +model.getDate());
+        ((loansView) holder).application_date.setText(model.getDate());
         ((loansView) holder).status.setText(" Status: " + " " +model.getStatus());
+        ((loansView) holder).monthly.setText(" Monthly pay: " + " " +model.getMonthly());
         ((loansView) holder).comment.setText(model.getComment());
 
         ((loansView) holder).loancard.setOnClickListener(new View.OnClickListener() {
@@ -83,7 +85,11 @@ public class loans_adapter  extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
                     AppUtilits.displayMessage(mContext, "Sorry, your loan has been rejected. ");
 
-                }else if(model.getStatus().equals("Approved")){
+                }else  if(model.getStatus().equals("Approved")){
+
+                    AppUtilits.displayMessage(mContext, "Please Wait for your loan to be disbursed ");
+
+                }else if(model.getStatus().equals("Disbursed")){
 
                     Intent intent = new Intent(mContext, loan_payments_home.class);
                     intent.putExtra("application_id", model.getApplication_id());
