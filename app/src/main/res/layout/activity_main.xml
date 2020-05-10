@@ -284,6 +284,31 @@
 
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/myaccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"
+            android:layout_weight="2"
+            android:background="@drawable/circle"
+            android:drawableTop="@mipmap/baseline_account_circle_white_36"
+            android:paddingTop="25dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/myaccount"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+    </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"

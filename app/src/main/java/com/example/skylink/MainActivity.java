@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     Context context;
     SharedPreferenceActivity sharedPreferenceActivity;
-    Button contributions, loans, account, feedback, withdraw,about,help;
+    Button contributions, loans, account, feedback, withdraw,about,help,myaccount;
     RelativeLayout training;
     TextView logout,count;
     String TAG = "Main";
@@ -93,9 +93,16 @@ public class MainActivity extends AppCompatActivity {
         training = findViewById(R.id.training);
         count = findViewById(R.id.count);
         help = findViewById(R.id.help);
+        myaccount = findViewById(R.id.myaccount);
 
 
-
+       myaccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent( MainActivity.this, my_account.class);
+                startActivity(intent);
+            }
+        });
         help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

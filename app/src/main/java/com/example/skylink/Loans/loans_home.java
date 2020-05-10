@@ -408,7 +408,7 @@ public class loans_home extends AppCompatActivity {
                                 for (int i =0; i<response.body().getInformation().size(); i++){
 
 
-                                    loansModels.add(  new loans_model(response.body().getInformation().get(i).getApplicationId(),response.body().getInformation().get(i).getAmount(),response.body().getInformation().get(i).getDate(),response.body().getInformation().get(i).getStatus(),response.body().getInformation().get(i).getLoanId(),response.body().getInformation().get(i).getComment(),response.body().getInformation().get(i).getDuration() ,response.body().getInformation().get(i).getMonthly()));
+                                    loansModels.add(  new loans_model(response.body().getInformation().get(i).getApplicationId(),response.body().getInformation().get(i).getAmount(),response.body().getInformation().get(i).getDate(),response.body().getInformation().get(i).getStatus(),response.body().getInformation().get(i).getLoanId(),response.body().getInformation().get(i).getComment(),response.body().getInformation().get(i).getDuration() ,response.body().getInformation().get(i).getMonthly() ,response.body().getInformation().get(i).getAmounts()));
 
                                 }
                                loans_adapter.notifyDataSetChanged();

@@ -3,7 +3,6 @@ package com.example.skylink;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,59 +20,48 @@ import com.example.skylink.beanResponse.LoanPaymentsRes;
 import com.example.skylink.beanResponse.LoansApplicationRes;
 import com.google.gson.Gson;
 
-import java.util.ArrayList;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class acount_home extends AppCompatActivity {
+public class my_account extends AppCompatActivity {
 
 
-    TextView fname, lname,id, username, email, phone, newkin,savings,loans,balances, payments;
+    TextView fname, lname,id, username, email, phone, newkin,savings,loans,balances, payments,requested;
+    Float balance;
     Context context;
-    String total_amount;
+
     SharedPreferenceActivity sharedPreferenceActivity;
     private RecyclerView recycler_kin;
     private  String TAG =" account_home";
-
-  Float balance;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_account);
+        setContentView(R.layout.myaccount);
 
 
         context = this;
         sharedPreferenceActivity = new SharedPreferenceActivity(context);
-        fname = findViewById(R.id.fname);
-        lname = findViewById(R.id.lname);
-        id = findViewById(R.id.id);
-        username = findViewById(R.id.username);
-        email = findViewById(R.id.email);
-        phone = findViewById(R.id.phone);
 
+        savings= findViewById(R.id.savings);
+        loans = findViewById(R.id.loans);
+        balances = findViewById(R.id.balances);
+        payments = findViewById(R.id.payments);
+        requested = findViewById(R.id.requested);
 
-        fname.setText(sharedPreferenceActivity.getItem(Constant.FIRST_NAME));
-        lname.setText(sharedPreferenceActivity.getItem(Constant.LAST_NAME));
-        id.setText(sharedPreferenceActivity.getItem(Constant.ID_NUMBER));
-        username.setText(sharedPreferenceActivity.getItem(Constant.USER_name));
-        email.setText(sharedPreferenceActivity.getItem(Constant.USER_email));
-        phone.setText("+254 "+sharedPreferenceActivity.getItem(Constant.USER_phone));
 
         getAllContributions();
         getUserLoans();
         getLoanPayments();
-
     }
+
 
 
     public  void getAllContributions(){
 
 
 
-        if (!NetworkUtility.isNetworkConnected(acount_home.this)) {
+        if (!NetworkUtility.isNetworkConnected(my_account.this)) {
 
             Toast.makeText(getApplicationContext(), "Network error", Toast.LENGTH_LONG).show();
 
@@ -100,7 +88,7 @@ public class acount_home extends AppCompatActivity {
 
 
 
-                               savings.setText(response.body().getMsg() );
+                                savings.setText(response.body().getMsg() );
 
 
 
@@ -108,7 +96,7 @@ public class acount_home extends AppCompatActivity {
 
                         } else {
 
-                            AppUtilits.displayMessage(acount_home.this, response.body().getMsg());
+                            AppUtilits.displayMessage(my_account.this, response.body().getMsg());
                         }
                     } else {
 
@@ -137,7 +125,7 @@ public class acount_home extends AppCompatActivity {
 
 
 
-        if (!NetworkUtility.isNetworkConnected(acount_home.this)) {
+        if (!NetworkUtility.isNetworkConnected(my_account.this)) {
 
             Toast.makeText(getApplicationContext(), "Network error", Toast.LENGTH_LONG).show();
 
@@ -167,14 +155,23 @@ public class acount_home extends AppCompatActivity {
 
                                     loans.setText("0");
                                 } else {
-                                   loans.setText( response.body().getMsg());
+                                    loans.setText( response.body().getMsg());
                                 }
 
+                                for (int i =0; i<response.body().getInformation().size(); i++) {
+
+                                    if (response.body().getInformation().get(i).getAmounts() == null) {
+
+                                        requested.setText("0");
+                                    } else {
+                                       requested.setText(response.body().getInformation().get(i).getAmounts() );
+                                    }
+                                }
                             }
 
                         } else {
 
-                            AppUtilits.displayMessage(acount_home.this, response.body().getMsg());
+                            AppUtilits.displayMessage(my_account.this, response.body().getMsg());
                         }
                     } else {
 
@@ -197,7 +194,7 @@ public class acount_home extends AppCompatActivity {
     }
 
     public  void  getLoanPayments(){
-        if (!NetworkUtility.isNetworkConnected(acount_home.this)) {
+        if (!NetworkUtility.isNetworkConnected(my_account.this)) {
 
             Toast.makeText(getApplicationContext(), "Network error", Toast.LENGTH_LONG).show();
 
@@ -224,7 +221,7 @@ public class acount_home extends AppCompatActivity {
 
                                 if (response.body().getMsg() == null){
 
-                                  payments.setText("0");
+                                    payments.setText("0");
                                 }else{
 
                                     payments.setText(response.body().getMsg());
@@ -237,10 +234,10 @@ public class acount_home extends AppCompatActivity {
                             }
 
                         } else {
-                           payments.setText("0");
+                            payments.setText("0");
 
 
-                           // AppUtilits.displayMessage(acount_home.this, response.body().getMsg());
+                            // AppUtilits.displayMessage(acount_home.this, response.body().getMsg());
                         }
                     } else {
 
@@ -263,4 +260,4 @@ public class acount_home extends AppCompatActivity {
 
     }
 
-    }
+}

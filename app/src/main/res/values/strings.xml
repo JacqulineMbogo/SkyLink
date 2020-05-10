@@ -45,6 +45,8 @@
         <string name="loan_type">Loan Type</string>
         <string name="loanpayment">Loan Payment</string>
         <string name="balances">Balance</string>
+        <string name="myaccount">My Account</string>
+        <string name="totalloans">Requested Loans</string>
         <string name="application">New User Application Form</string>
         <string name="kin">Nominated Next Of Kin</string>
         <string name="nextname">Full Name</string>

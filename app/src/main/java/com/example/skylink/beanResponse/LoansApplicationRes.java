@@ -64,10 +64,22 @@ public class LoansApplicationRes {
         @SerializedName("duration")
         @Expose
         private String duration;
+        @SerializedName("amounts")
+        @Expose
+        private String amounts;
 
         @SerializedName("monthly")
         @Expose
         private String monthly;
+
+
+        public String getAmounts() {
+            return amounts;
+        }
+
+        public void setAmounts(String amounts) {
+            this.amounts = amounts;
+        }
 
         public String getMonthly() {
             return monthly;

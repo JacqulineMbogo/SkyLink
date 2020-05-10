@@ -36,6 +36,7 @@
         <activity android:name=".Loans.loan_payments_home"/>
         <activity android:name=".Training.training_home"/>
         <activity android:name=".help_home"/>
+        <activity android:name=".my_account"/>
     </application>
 
 
