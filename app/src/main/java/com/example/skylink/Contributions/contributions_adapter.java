@@ -1,19 +1,35 @@
 package com.example.skylink.Contributions;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+
 import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.example.skylink.R;
+import com.example.skylink.Utility.AppUtilits;
+import com.example.skylink.Utility.Constant;
+import com.example.skylink.Utility.NetworkUtility;
+import com.example.skylink.Utility.SharedPreferenceActivity;
+import com.example.skylink.WebServices.ServiceWrapper;
+import com.example.skylink.beanResponse.SaveContributionRes;
 
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import com.example.skylink.Contributions.contributions_home;
 
 public class contributions_adapter  extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
@@ -21,24 +37,29 @@ public class contributions_adapter  extends RecyclerView.Adapter<RecyclerView.Vi
     private List<contributions_model> contributions_models;
     private Context mContext;
     private String TAG ="contributionsAdapter";
+    SharedPreferenceActivity sharedPreferenceActivity;
 
 
     public contributions_adapter (Context context, List<contributions_model> contributionModels){
         this.contributions_models = contributionModels;
         this.mContext = context;
+        sharedPreferenceActivity = new SharedPreferenceActivity(mContext);
 
     }
 
     private class contributionsView extends RecyclerView.ViewHolder {
 
-        TextView contribution_type, amount, contribution_date,contribution_id;
+        TextView contribution_type, amount, contribution_date,contribution_id,variance;
+        LinearLayout typelinear;
 
 
         public contributionsView(View itemView) {
             super(itemView);
 
             contribution_type =  itemView.findViewById(R.id.contribution_type);
+            typelinear = itemView.findViewById(R.id.typelinear);
             amount =  itemView.findViewById(R.id.amount);
+            variance =  itemView.findViewById(R.id.variance);
             contribution_date =  itemView.findViewById(R.id.contribution_date);
 
         }
@@ -56,13 +77,71 @@ public class contributions_adapter  extends RecyclerView.Adapter<RecyclerView.Vi
 
         final contributions_model model =  contributions_models.get(position);
 
-        ((contributionsView) holder).contribution_type.setText(model.getContribution_type_id());
+        ((contributionsView) holder).contribution_type.setText(model.getSaving_name());
         ((contributionsView) holder).amount.setText(model.getAmount());
-        ((contributionsView) holder).contribution_date.setText(model.getContribution_date());
+        ((contributionsView) holder).variance.setText(model.getVariance());
+        ((contributionsView) holder).contribution_date.setText(model.getSavings_date());
+
+        ((contributionsView) holder).typelinear.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                 View view;
+                    final Dialog dialog;
+
+                    view = LayoutInflater.from(mContext).inflate(R.layout.dialog_popup, null, false);
+                    AlertDialog.Builder alertDialog = new AlertDialog.Builder(mContext);
+
+                    alertDialog.setView(view);
+
+                    alertDialog.setCancelable(true);
+
+
+                    dialog = alertDialog.create();
+
+                    dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+
+                    dialog.show();
+
+                    TextView newentry = view.findViewById(R.id.newentry);
+                    TextView viewstatements = view.findViewById(R.id.view);
+
+
+
+                newentry.setOnClickListener(new View.OnClickListener()
+                    {
+                        @Override
+                        public void onClick(View view)
+                        {
+
+                     contributions_home.newcontribution();
+                            dialog.cancel();
+
+                        }
+                    });
+
+
+                    viewstatements.setOnClickListener(new View.OnClickListener()
+                    {
+                        @Override
+                        public void onClick(View view)
+                        {
+
+                           //contributions_home.getsingleContributions(model.getSavings_id());
+                            dialog.cancel();
+
+                        }
+                    });
+
+
+
+            }
+        });
 
 
 
     }
+
 
     @Override
     public int getItemCount() {

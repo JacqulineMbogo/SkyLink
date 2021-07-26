@@ -10,22 +10,6 @@
     tools:context=".MainActivity">
 
 
-    <TextView
-        android:id="@+id/logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/logout"
-        android:textColor="@color/black"
-        android:drawableStart="@drawable/logout"
-        android:layout_gravity="end"
-        android:gravity="end"
-        android:padding="@dimen/padding_medium"
-        android:textStyle="bold|italic"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:drawableLeft="@drawable/ic_notifications_black_24dp" />
-
-
-
     <RelativeLayout
         android:id="@+id/training"
         android:layout_width="match_parent"
@@ -43,7 +27,7 @@
             android:gravity="start"
             android:padding="@dimen/padding_medium"
             android:textStyle="bold|italic"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
             />
 
         <TextView
@@ -56,7 +40,7 @@
             android:layout_marginLeft="@dimen/padding_small"
             android:layout_toEndOf="@+id/notification"
             android:layout_marginBottom="@dimen/padding_small"
-                android:background="@drawable/rounded_blue"
+            android:background="@drawable/rounded_blue"
             android:paddingRight="@dimen/padding_small"
             android:textColor="@color/white"
             android:textStyle="bold|italic"
@@ -73,57 +57,29 @@
         android:orientation="horizontal"
         android:padding="16dp">
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:id="@+id/mygroupsLinear"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/rounded_blue"
+            android:layout_gravity="center"
+            android:gravity="center"
+           >
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/contributions"
-                android:background="@drawable/circle"
-                android:layout_gravity="center"
-                android:drawableTop="@mipmap/baseline_bar_chart_white_36"
-                android:paddingTop="25dp"
-                android:layout_margin="15dp"
-                android:layout_weight="2"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/savings"
-                android:textColor="@color/black"
-                android:layout_gravity="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:id="@+id/loans"
-                android:layout_margin="15dp"
-                android:background="@drawable/circle"
-                android:drawableTop="@mipmap/baseline_credit_card_white_36"
-                android:paddingTop="25dp"
-
-                android:layout_weight="2"
-                />
 
             <TextView
+                android:id="@+id/mygroupsText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/loans"
-                android:textColor="@color/black"
+                android:text="@string/mygroups"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
                 android:gravity="center"
-                android:layout_gravity="center"
+                android:textStyle="bold"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
 
         </LinearLayout>
+
+
 
 
     </LinearLayout>
@@ -137,57 +93,26 @@
         android:orientation="horizontal"
         android:padding="16dp">
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:id="@+id/todaygroupsLinear"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/rounded_blue"
+            android:layout_gravity="center"
+            android:gravity="center">
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/account"
-                android:background="@drawable/circle"
-                android:layout_gravity="center"
-                android:drawableTop="@mipmap/baseline_account_circle_white_36"
-                android:paddingTop="25dp"
-                android:layout_margin="15dp"
-                android:layout_weight="2"
-                />
+
             <TextView
+                android:id="@+id/todaygroupsText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="My Profile"
-                android:textColor="@color/black"
+                android:text="@string/groupstoday"
+                android:textColor="@color/white"
                 android:layout_gravity="center"
+                android:textStyle="bold"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height= "wrap_content"
-                android:id="@+id/feedback"
-                android:layout_margin="15dp"
-                android:background="@drawable/circle"
-                android:drawableTop="@mipmap/baseline_question_answer_white_36"
-                android:paddingTop="25dp"
-
-                android:layout_weight="2"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Feedback"
-                android:textColor="@color/black"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
-
-        </LinearLayout>
 
 
     </LinearLayout>
@@ -199,51 +124,22 @@
         android:layout_gravity="center"
         android:orientation="horizontal"
         android:padding="16dp">
+
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:orientation="vertical">
+            android:id="@+id/newgroupsLinear"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/rounded_blue"
+            android:layout_gravity="center"
+            android:gravity="center">
 
-            <Button
-                android:id="@+id/withdraw"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="15dp"
-                android:layout_weight="2"
-                android:background="@drawable/circle"
-                android:drawableTop="@mipmap/baseline_timeline_white_36"
-                android:paddingTop="25dp" />
             <TextView
+                android:id="@+id/newgroupsText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/withdraws"
-                android:textColor="@color/black"
-                android:layout_gravity="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/about"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="15dp"
-                android:layout_weight="2"
-                android:background="@drawable/circle"
-                android:drawableTop="@mipmap/baseline_post_add_white_36"
-                android:paddingTop="25dp" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/aboutus"
-                android:textColor="@color/black"
+                android:text="@string/registergroup"
+                android:textColor="@color/white"
+                android:textStyle="bold"
                 android:layout_gravity="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
 

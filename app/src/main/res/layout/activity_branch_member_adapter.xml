@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@android:color/transparent"
+    android:layout_margin="@dimen/padding_small"
+    android:gravity="center">
+
+    <LinearLayout
+        android:id="@+id/membercard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bgContent"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <!-- LEFT TITLE PART -->
+        <RelativeLayout
+            android:layout_width="20dp"
+            android:layout_height="100dp"
+            android:background="@color/colorPrimaryDark"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingBottom="7dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="7dp">
+
+        </RelativeLayout>
+        <!-- RIGHT TITLE PART -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+              android:background="@color/bgTitleRight"
+            android:padding="@dimen/padding_medium"
+            >
+
+            <ImageView
+                android:id="@+id/title_from_to_dots"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                app:srcCompat="@drawable/avatar" />
+
+            <TextView
+                android:id="@+id/membername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TitleBadgeTitle"
+                android:layout_below="@id/title_from_to_dots_divider"
+                android:layout_toEndOf="@id/title_from_to_dots"
+                android:layout_toRightOf="@id/title_from_to_dots"
+                android:ellipsize="marquee"
+                android:fadingEdge="horizontal"
+                android:singleLine="true"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                />
+
+
+            <ImageView
+                android:id="@+id/title_from_to_dots_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/memberID"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/title_from_to_dots"
+                android:layout_toRightOf="@+id/title_from_to_dots"
+                android:src="@color/contentDividerLine" />
+            <TextView
+                android:id="@+id/memberID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/title_from_to_dots"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/title_from_to_dots"
+                android:layout_toRightOf="@+id/title_from_to_dots"
+                android:ellipsize="marquee"
+                android:fadingEdge="horizontal"
+                android:singleLine="true"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+
+    <com.example.skylink.Utility.ExpandableLinearLayout
+        android:id="@+id/expandableView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        app:expandDuration="500">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <!-- content header line -->
+            <RelativeLayout
+                android:id="@+id/relativeTransact"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary"
+                android:paddingBottom="7dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:paddingTop="7dp">
+
+                <TextView
+                    android:id="@+id/customer_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:textColor="@android:color/white"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+
+
+                <ImageView
+                    android:id="@+id/dropdown"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    app:srcCompat="@drawable/menu_icon"
+                    android:layout_alignParentRight="true" />
+
+            </RelativeLayout>
+
+
+            <!-- content body layout -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bgContent"
+                android:orientation="vertical"
+                android:paddingBottom="6dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="9dp">
+
+                <!-- avatar and name part -->
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/nationalidNAME"
+                        style="@style/ContentMainBadgeTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginBottom="5dp"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:text="@string/id_number" />
+
+                    <ImageView
+                        android:id="@+id/content_avatar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/nationalidNAME"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/ic_baseline_contact_phone_24" />
+
+                    <TextView
+                        android:id="@+id/nationalid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/nationalidNAME"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_toEndOf="@id/nationalidNAME"
+                        android:layout_toRightOf="@id/nationalidNAME"
+                        android:textColor="@color/mainTextColor"
+
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        />
+
+
+
+                    <TextView
+                        android:id="@+id/phonenumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/nationalid"
+                        android:layout_alignStart="@id/nationalid"
+                        android:layout_below="@id/nationalid"
+                        android:textColor="@color/mainTextColor"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        />
+
+
+                </RelativeLayout>
+
+                <!-- divider line -->
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginTop="9dp"
+                    android:src="@color/contentDividerLine" />
+
+                <!-- addresses part -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/county"
+                            style="@style/ContentMainBadgeTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:text="@string/county" />
+
+                        <TextView
+                            android:id="@+id/customer_region"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignLeft="@id/county"
+                            android:layout_alignStart="@id/county"
+                            android:layout_below="@id/county"
+                            android:textColor="@color/mainTextColor"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                            />
+
+
+                    </RelativeLayout>
+
+
+
+                </LinearLayout>
+
+                <!-- divider line -->
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginTop="7dp"
+                    android:src="@color/contentDividerLine" />
+
+                <!-- dates part -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/town"
+                            style="@style/ContentMainBadgeTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:text="@string/town" />
+
+                        <TextView
+                            android:id="@+id/customer_location"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignLeft="@id/town"
+                            android:layout_alignStart="@id/town"
+                            android:layout_below="@id/town"
+
+                            android:textColor="@color/mainTextColor"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                            />
+
+
+
+                    </RelativeLayout>
+
+
+
+                </LinearLayout>
+
+                <!-- request button -->
+                <!-- divider line -->
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginTop="7dp"
+                    android:src="@color/contentDividerLine" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/ContentMainBadgeTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/create_Date"
+                        android:textAlignment="center"
+                        android:textColor="@color/contentBadgeTitle"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:gravity="center_horizontal" />
+
+                    <TextView
+                        android:id="@+id/customer_createdOn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/mainTextColor"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:gravity="center_horizontal" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </com.example.skylink.Utility.ExpandableLinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:background="@android:color/transparent"/>
+</LinearLayout>

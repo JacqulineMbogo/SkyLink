@@ -30,20 +30,22 @@ public class acount_home extends AppCompatActivity {
 
 
         context = this;
+
+        this.setTitle("Account");
         sharedPreferenceActivity = new SharedPreferenceActivity(context);
         fname = findViewById(R.id.fname);
-        lname = findViewById(R.id.lname);
+        //lname = findViewById(R.id.lname);
         id = findViewById(R.id.id);
-        username = findViewById(R.id.username);
+        //username = findViewById(R.id.username);
         email = findViewById(R.id.email);
         phone = findViewById(R.id.phone);
 
-        fname.setText(sharedPreferenceActivity.getItem(Constant.FIRST_NAME));
-        lname.setText(sharedPreferenceActivity.getItem(Constant.LAST_NAME));
+        fname.setText(sharedPreferenceActivity.getItem(Constant.FULL_NAME));
+        //lname.setText(sharedPreferenceActivity.getItem(Constant.LAST_NAME));
         id.setText(sharedPreferenceActivity.getItem(Constant.ID_NUMBER));
-        username.setText(sharedPreferenceActivity.getItem(Constant.USER_name));
+        //username.setText(sharedPreferenceActivity.getItem(Constant.USER_name));
         email.setText(sharedPreferenceActivity.getItem(Constant.USER_email));
-        phone.setText("+254 "+sharedPreferenceActivity.getItem(Constant.USER_phone));
+        phone.setText(sharedPreferenceActivity.getItem(Constant.USER_phone));
 
     }
 

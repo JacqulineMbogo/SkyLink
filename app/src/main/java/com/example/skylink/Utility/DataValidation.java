@@ -23,7 +23,7 @@ public class DataValidation  {
     public static Boolean isNotValidPassword( String password){
         Boolean valid = true;
         if (!TextUtils.isEmpty(password.trim())){
-            if (password.trim().length()>5){
+            if (password.trim().length()>6){
                 valid =false;
             }
         }

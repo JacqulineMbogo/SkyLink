@@ -265,7 +265,7 @@ public class loans_home extends AppCompatActivity {
 
             //  Log.e(TAG, "  user value "+ SharePreferenceUtils.getInstance().getString(Constant.USER_DATA));
             ServiceWrapper service = new ServiceWrapper(null);
-            Call<NewLoanApplicationRes> call = service.SaveNewLoanCall("12345", loantype,amount, sharedPreferenceActivity.getItem(Constant.USER_DATA));
+            Call<NewLoanApplicationRes> call = service.SaveNewLoanCall("12345", loantype,amount,sharedPreferenceActivity.getItem("member_id"), sharedPreferenceActivity.getItem(Constant.USER_DATA));
             call.enqueue(new Callback<NewLoanApplicationRes>() {
                 @Override
                 public void onResponse(Call<NewLoanApplicationRes> call, Response<NewLoanApplicationRes> response) {
@@ -314,7 +314,7 @@ public class loans_home extends AppCompatActivity {
             progressbar.setVisibility(View.GONE);
             //  Log.e(TAG, "  user value "+ SharePreferenceUtils.getInstance().getString(Constant.USER_DATA));
             ServiceWrapper service = new ServiceWrapper(null);
-            Call<LoansApplicationRes> call = service.LoansCall("1234", sharedPreferenceActivity.getItem(Constant.USER_DATA));
+            Call<LoansApplicationRes> call = service.LoansCall("1234", sharedPreferenceActivity.getItem("member_id"));
 
             call.enqueue(new Callback<LoansApplicationRes>() {
                 @Override

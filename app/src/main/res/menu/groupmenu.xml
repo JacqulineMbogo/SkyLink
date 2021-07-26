@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/venue"
+        android:icon="@drawable/ic_baseline_credit_card_24"
+        android:orderInCategory="100"
+        android:title="@string/venueview"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/serve"
+        android:icon="@drawable/ic_baseline_attach_money_24"
+        android:orderInCategory="100"
+        android:title="@string/serve"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/reports"
+        android:icon="@drawable/ic_baseline_attach_money_24"
+        android:orderInCategory="100"
+        android:title="@string/reports"
+        app:showAsAction="never" />
+
+
+
+</menu>

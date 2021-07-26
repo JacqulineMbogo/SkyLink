@@ -1,14 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-        <color name="colorPrimary">#687994</color>
-        <color name="colorPrimaryDark">#121212</color>
-        <color name="colorAccent">#1F1B24</color>
+        <color name="colorPrimary">#8EA6C4</color>
+        <color name="colorPrimaryDark">#D7B89C</color>
+        <color name="colorAccent">#EEE9E3</color>
 
         <color name="black">#000000</color>
         <color name="white">#ffffff</color>
 
         <color name="text_color">#0B43A4</color>
+
+
+        <color name="bgBackSideColor">#f4f0ff</color>
+        <color name="bgTitleLeft">#8EA6C4</color>
+        <color name="bgTitleRight">#ffffff</color>
+        <color name="bgContentTop">#8EA6C4</color>
+        <color name="bgContent">#ffffff</color>
+        <color name="contentDividerLine">#e0e0e0</color>
+        <color name="contentBadgeTitle">#a9a9a9</color>
+        <color name="titleBadgeTitle">#adafb1</color>
+        <color name="titleBadgeText">#adafb1</color>
+        <color name="mainTextColor">#343d43</color>
+        <color name="btnRequest">#D7B89C</color>
 
 </resources>
 

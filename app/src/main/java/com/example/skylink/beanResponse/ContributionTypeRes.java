@@ -43,27 +43,115 @@ public class ContributionTypeRes {
 
     public class Information {
 
-        @SerializedName("contribution_type_id")
+        @SerializedName("savings_type_id")
         @Expose
-        private String contributionTypeId;
-        @SerializedName("contribution_type")
+        private String savingsTypeId;
+        @SerializedName("name")
         @Expose
-        private String contributionType;
+        private String name;
+        @SerializedName("description")
+        @Expose
+        private String description;
+        @SerializedName("min_amount")
+        @Expose
+        private String minAmount;
+        @SerializedName("max_amount")
+        @Expose
+        private String maxAmount;
+        @SerializedName("factor_loan")
+        @Expose
+        private String factorLoan;
+        @SerializedName("penalty_id")
+        @Expose
+        private String penaltyId;
+        @SerializedName("percent_amount")
+        @Expose
+        private String percentAmount;
+        @SerializedName("autodeduct")
+        @Expose
+        private String autodeduct;
+        @SerializedName("savings_tpe")
+        @Expose
+        private String savingsTpe;
 
-        public String getContributionTypeId() {
-            return contributionTypeId;
+        public String getSavingsTypeId() {
+            return savingsTypeId;
         }
 
-        public void setContributionTypeId(String contributionTypeId) {
-            this.contributionTypeId = contributionTypeId;
+        public void setSavingsTypeId(String savingsTypeId) {
+            this.savingsTypeId = savingsTypeId;
         }
 
-        public String getContributionType() {
-            return contributionType;
+        public String getName() {
+            return name;
         }
 
-        public void setContributionType(String contributionType) {
-            this.contributionType = contributionType;
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+
+        public void setDescription(String description) {
+            this.description = description;
+        }
+
+        public String getMinAmount() {
+            return minAmount;
+        }
+
+        public void setMinAmount(String minAmount) {
+            this.minAmount = minAmount;
+        }
+
+        public String getMaxAmount() {
+            return maxAmount;
+        }
+
+        public void setMaxAmount(String maxAmount) {
+            this.maxAmount = maxAmount;
+        }
+
+        public String getFactorLoan() {
+            return factorLoan;
+        }
+
+        public void setFactorLoan(String factorLoan) {
+            this.factorLoan = factorLoan;
+        }
+
+        public String getPenaltyId() {
+            return penaltyId;
+        }
+
+        public void setPenaltyId(String penaltyId) {
+            this.penaltyId = penaltyId;
+        }
+
+        public String getPercentAmount() {
+            return percentAmount;
+        }
+
+        public void setPercentAmount(String percentAmount) {
+            this.percentAmount = percentAmount;
+        }
+
+        public String getAutodeduct() {
+            return autodeduct;
+        }
+
+        public void setAutodeduct(String autodeduct) {
+            this.autodeduct = autodeduct;
+        }
+
+        public String getSavingsTpe() {
+            return savingsTpe;
+        }
+
+        public void setSavingsTpe(String savingsTpe) {
+            this.savingsTpe = savingsTpe;
         }
 
     }

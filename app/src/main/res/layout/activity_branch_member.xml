@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_large"
+        android:layout_marginBottom="@dimen/padding_large"
+        android:layout_marginLeft="@dimen/padding_small"
+        android:orientation="horizontal"
+        android:layout_marginRight="@dimen/padding_small">
+
+        <SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:elevation="2dp"
+            android:background="@color/colorAccent"
+            android:layout_height="wrap_content">
+        </SearchView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:paddingRight="@dimen/padding_small"
+        android:paddingLeft="@dimen/padding_small">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/branch_member_recycler"
+            android:padding="@dimen/padding_small"
+            android:layout_marginBottom="@dimen/padding_medium">
+
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>

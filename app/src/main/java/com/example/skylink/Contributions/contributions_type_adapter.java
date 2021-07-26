@@ -55,8 +55,8 @@ public class contributions_type_adapter extends RecyclerView.Adapter<RecyclerVie
 
         final contributions_type_model model =  contributions_type_models.get(position);
 
-        ((contributionsView) holder).contribution_type.setText(model.getContribution_type());
-        ((contributionsView) holder).contribution_type_id.setText(model.getContribution_type_id());
+        ((contributionsView) holder).contribution_type.setText(model.getSavings_type_id());
+        ((contributionsView) holder).contribution_type_id.setText(model.getSavings_tpe());
 
 
     }
@@ -65,6 +65,6 @@ public class contributions_type_adapter extends RecyclerView.Adapter<RecyclerVie
 
     @Override
     public int getItemCount() {
-        return 0;
+        return contributions_type_models.size();
     }
 }

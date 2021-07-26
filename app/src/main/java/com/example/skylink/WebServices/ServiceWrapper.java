@@ -3,6 +3,10 @@ package com.example.skylink.WebServices;
 
 import com.example.skylink.BuildConfig;
 import com.example.skylink.Utility.Constant;
+import com.example.skylink.beanResponse.BranchMembersRes;
+import com.example.skylink.beanResponse.CashContributionRes;
+import com.example.skylink.beanResponse.CashContributionsTypesRes;
+import com.example.skylink.beanResponse.ChangePassword;
 import com.example.skylink.beanResponse.ContributionRes;
 import com.example.skylink.beanResponse.ContributionTypeRes;
 import com.example.skylink.beanResponse.GetWithdrawalsRes;
@@ -11,15 +15,22 @@ import com.example.skylink.beanResponse.LoanPaymentsRes;
 import com.example.skylink.beanResponse.LoanTypeRes;
 import com.example.skylink.beanResponse.LoansApplicationRes;
 import com.example.skylink.beanResponse.MakeLoanPaymentRes;
+import com.example.skylink.beanResponse.MandatoryContributinTypeRes;
 import com.example.skylink.beanResponse.NewLoanApplicationRes;
 import com.example.skylink.beanResponse.NewUserRegistration;
 import com.example.skylink.beanResponse.NextofKinRes;
+import com.example.skylink.beanResponse.SaveCashContribution;
 import com.example.skylink.beanResponse.SaveContributionRes;
+import com.example.skylink.beanResponse.SaveMandatoryContributionRes;
+import com.example.skylink.beanResponse.SingleContributionRes;
 import com.example.skylink.beanResponse.TrainingRes;
 import com.example.skylink.beanResponse.UserSignInRes;
 import com.example.skylink.beanResponse.WithdrawRes;
 import com.example.skylink.beanResponse.feedbackAPI;
 import com.example.skylink.beanResponse.feedhistoryAPI;
+import com.example.skylink.beanResponse.getBranchesResponse;
+import com.example.skylink.beanResponse.mandatoryContributionRes;
+import com.example.skylink.beanResponse.newMeetingRes;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -75,6 +86,10 @@ public class ServiceWrapper  {
         return mServiceInterface.NewUserRegistrationCall( convertPlainString(id_number),convertPlainString(first_name),convertPlainString(last_name),convertPlainString(email), convertPlainString(phone_number), convertPlainString(username),convertPlainString(amount), convertPlainString(password));
     }
     ///  user signin
+    public Call<ChangePassword> ChangePasswordCall(String id_number, String password){
+        return mServiceInterface.ChangePasswordCall(convertPlainString(id_number), convertPlainString(password));
+    }
+    ///  user signin
     public Call<UserSignInRes> UserSigninCall(String id_number, String password){
         return mServiceInterface.UserSigninCall(convertPlainString(id_number), convertPlainString(password));
     }
@@ -83,17 +98,50 @@ public class ServiceWrapper  {
     public Call<ContributionRes> ContributionCall(String securecode, String user_id){
         return mServiceInterface.ContributionCall(convertPlainString(securecode), convertPlainString(user_id));
     }
+    public Call<SingleContributionRes> SingleContributionCall(String securecode, String saving_id,String member_id){
+        return mServiceInterface.SingleContributionCall(convertPlainString(securecode), convertPlainString(saving_id), convertPlainString(member_id));
+    }
+    public Call<mandatoryContributionRes> mandatoryContributionResCall(String securecode, String user_id){
+        return mServiceInterface.mandatoryContributionResCall(convertPlainString(securecode), convertPlainString(user_id));
+    }
+    public Call<CashContributionRes> CashContributionResCall(String securecode, String user_id){
+        return mServiceInterface.CashContributionResCall(convertPlainString(securecode), convertPlainString(user_id));
+    }
+    public Call<newMeetingRes> newMeetingResCall(String securecode, String created_by,String group_id,String meeting_venue,String comments){
+        return mServiceInterface.newMeetingResCall(convertPlainString(securecode), convertPlainString(created_by),convertPlainString(group_id),convertPlainString(meeting_venue),convertPlainString(comments));
+    }
 
     ///  new contribution
-    public Call<SaveContributionRes> SaveContributionCall(String securecode, String contribution_type_id, String amount, String user_id, String code){
-        return mServiceInterface.SaveContributionCall(convertPlainString(securecode),convertPlainString(contribution_type_id),convertPlainString(amount), convertPlainString(user_id), convertPlainString(code));
+    public Call<SaveContributionRes> SaveContributionCall(String securecode, String contribution_type_id, String amount,String variance, String user_id, String created_by,String meeting_id){
+        return mServiceInterface.SaveContributionCall(convertPlainString(securecode),convertPlainString(contribution_type_id),convertPlainString(amount),convertPlainString(variance), convertPlainString(user_id), convertPlainString(created_by), convertPlainString(meeting_id));
+    }
+
+    ///  new contribution
+    public Call<SaveCashContribution> SaveCashContributionCall(String securecode, String cash_id, String amount, String variance, String user_id, String created_by, String meeting_id){
+        return mServiceInterface.SaveCashContributionCall(convertPlainString(securecode),convertPlainString(cash_id),convertPlainString(amount),convertPlainString(variance), convertPlainString(user_id), convertPlainString(created_by), convertPlainString(meeting_id));
+    }
+
+    ///  new contribution
+    public Call<SaveMandatoryContributionRes> SaveMandatoryContributionResCall(String securecode, String mandatory_id, String amount, String variance, String user_id, String created_by, String meeting_id){
+        return mServiceInterface.SaveMandatoryContributionResCall(convertPlainString(securecode),convertPlainString(mandatory_id),convertPlainString(amount),convertPlainString(variance), convertPlainString(user_id), convertPlainString(created_by), convertPlainString(meeting_id));
     }
 
 
+    ///  get mandatory contributions types
+    public Call<MandatoryContributinTypeRes> MandatoryContributinTypeResCall(String securecode){
+        return mServiceInterface.MandatoryContributinTypeResCall(convertPlainString(securecode));
+    }
+
+
+    ///  get cash contributions types
+    public Call<CashContributionsTypesRes> CashContributionsTypesResCall(String securecode){
+        return mServiceInterface.CashContributionsTypesResCall(convertPlainString(securecode));
+    }
     ///  get all contributions types
     public Call<ContributionTypeRes> ContributionTypeCall(String securecode){
         return mServiceInterface.ContributionTypeCall(convertPlainString(securecode));
     }
+
 
     ///  get all loan types
     public Call<LoanTypeRes> LoanTypeCall(String securecode){
@@ -112,8 +160,8 @@ public class ServiceWrapper  {
     }
 
     ///  new loan
-    public Call<NewLoanApplicationRes> SaveNewLoanCall(String securecode, String loan_type_id, String amount, String user_id){
-        return mServiceInterface.SaveNewLoanCall(convertPlainString(securecode),convertPlainString(loan_type_id),convertPlainString(amount), convertPlainString(user_id));
+    public Call<NewLoanApplicationRes> SaveNewLoanCall(String securecode, String loan_type_id, String amount, String user_id, String created_by){
+        return mServiceInterface.SaveNewLoanCall(convertPlainString(securecode),convertPlainString(loan_type_id),convertPlainString(amount), convertPlainString(user_id), convertPlainString(created_by));
     }
 
     ///  make loan payment
@@ -161,6 +209,16 @@ public class ServiceWrapper  {
         return mServiceInterface.TrainingResCall(convertPlainString(securecode));
     }
 
+    ///  get all user branches
+    public Call<getBranchesResponse> getBranchesResponseCall(String securecode, String user_id){
+        return mServiceInterface.getBranchesResponseCall(convertPlainString(securecode), convertPlainString(user_id));
+    }
+
+
+    ///  get all branch members
+    public Call<BranchMembersRes> BranchMembersResCall(String securecode, String user_id,String branch_id){
+        return mServiceInterface.BranchMembersResCall(convertPlainString(securecode), convertPlainString(user_id), convertPlainString(branch_id));
+    }
 }
 
 

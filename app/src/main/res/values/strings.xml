@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SKY LINK TABLE BANKING</string>
+    <string name="app_name">Songa Mbele Kenya</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
@@ -83,7 +83,48 @@ Members are contributing money when they attend meeting. The money contributed i
     <string name="withdraws">Withdrawals</string>
     <string name="logout">Log Out</string>
     <string name="notification">Notification</string>
-    <string name="notifications">Trainings Notifications</string>
+    <string name="notifications">Notifications</string>
+    <string name="idno">National ID Number</string>
+    <string name="change_pass">Change Password</string>
+    <string name="finish">Finish</string>
+    <string name="newpassword">New Password</string>
+    <string name="acount">Profile</string>
+    <string name="home">Home</string>
+    <string name="welcome">Karibu</string>
+    <string name="assigned">Assigned Groups</string>
+    <string name="name">Name</string>
+    <string name="lastMeeting">Last Meet</string>
+    <string name="group">group</string>
+    <string name="region">Region</string>
+    <string name="county">County</string>
+    <string name="town">Town</string>
+    <string name="create_Date">Created On</string>
+    <string name="startMeeting">Start Meeting</string>
+    <string name="searchgroups">Search Assigned Groups...</string>
+    <string name="meeting_details">Meeting Details</string>
+    <string name="comments">"Comments "</string>
+    <string name="venue">Venue</string>
+    <string name="newentry">New Entry</string>
+    <string name="view">Statements</string>
+    <string name="variance">Variance</string>
+    <string name="type">Type</string>
+    <string name="settle">Settle</string>
+    <string name="type_id">Type_id</string>
+    <string name="deduct">Deduct Savings</string>
+    <string name="mandatory_savings">Mandatory Contributions</string>
+    <string name="collect">Collect Cash</string>
+    <string name="confirm_deposit">Conform Deposit</string>
+    <string name="deduct_savings">Deduct Savings</string>
+    <string name="cash_collections">Cash Collections</string>
+    <string name="mygroups">My Groups</string>
+    <string name="groupstoday">Groups Today</string>
+    <string name="registergroup">Register New Group</string>
+    <string name="groupName">Group Name</string>
+    <string name="meetingdate">Meeting Date</string>
+    <string name="meetingtime">Meeting Time</string>
+    <string name="venueview">Vuew Venue</string>
+    <string name="serve">Serve Group</string>
+    <string name="reports">View Reports</string>
 
 
 </resources>

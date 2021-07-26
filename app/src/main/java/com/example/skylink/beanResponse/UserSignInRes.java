@@ -48,21 +48,21 @@ public class UserSignInRes {
         @SerializedName("id_number")
         @Expose
         private String idNumber;
-        @SerializedName("first_name")
+        @SerializedName("full_name")
         @Expose
-        private String firstName;
-        @SerializedName("last_name")
-        @Expose
-        private String lastName;
+        private String fullName;
         @SerializedName("email")
         @Expose
         private String email;
-        @SerializedName("username")
-        @Expose
-        private String username;
         @SerializedName("phone_number")
         @Expose
         private String phoneNumber;
+        @SerializedName("role")
+        @Expose
+        private String role;
+        @SerializedName("branch")
+        @Expose
+        private String branch;
 
         public String getUserId() {
             return userId;
@@ -80,20 +80,12 @@ public class UserSignInRes {
             this.idNumber = idNumber;
         }
 
-        public String getFirstName() {
-            return firstName;
+        public String getFullName() {
+            return fullName;
         }
 
-        public void setFirstName(String firstName) {
-            this.firstName = firstName;
-        }
-
-        public String getLastName() {
-            return lastName;
-        }
-
-        public void setLastName(String lastName) {
-            this.lastName = lastName;
+        public void setFullName(String fullName) {
+            this.fullName = fullName;
         }
 
         public String getEmail() {
@@ -104,14 +96,6 @@ public class UserSignInRes {
             this.email = email;
         }
 
-        public String getUsername() {
-            return username;
-        }
-
-        public void setUsername(String username) {
-            this.username = username;
-        }
-
         public String getPhoneNumber() {
             return phoneNumber;
         }
@@ -120,6 +104,22 @@ public class UserSignInRes {
             this.phoneNumber = phoneNumber;
         }
 
-    }
+        public String getRole() {
+            return role;
+        }
 
+        public void setRole(String role) {
+            this.role = role;
+        }
+
+        public String getBranch() {
+            return branch;
+        }
+
+        public void setBranch(String branch) {
+            this.branch = branch;
+        }
+
+
+    }
 }

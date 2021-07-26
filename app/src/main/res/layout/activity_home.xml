@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:paddingRight="@dimen/padding_small"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/padding_small">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_large"
+            android:layout_marginBottom="@dimen/padding_large"
+            android:layout_marginLeft="@dimen/padding_small"
+            android:orientation="horizontal"
+            android:layout_marginRight="@dimen/padding_small">
+
+            <SearchView
+                android:id="@+id/searchView"
+                android:layout_width="match_parent"
+                android:elevation="2dp"
+                android:background="@color/colorAccent"
+                android:layout_height="wrap_content">
+            </SearchView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/branchcard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/branch_name"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                style="@style/TitleBadgeTitle"
+                android:padding="@dimen/padding_small"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:fadingEdge="horizontal"
+                android:singleLine="true"
+                android:text="@string/groupName"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                />
+            <TextView
+                android:id="@+id/meetindDate"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:padding="@dimen/padding_small"
+                android:layout_height="wrap_content"
+                style="@style/TitleBadgeTitle"
+                android:ellipsize="marquee"
+                android:fadingEdge="horizontal"
+                android:singleLine="true"
+                android:textStyle="bold"
+                android:text="@string/meetingdate"
+                android:textColor="@android:color/black"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                />
+            <TextView
+                android:id="@+id/meetingTime"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:padding="@dimen/padding_small"
+                android:layout_height="wrap_content"
+                style="@style/TitleBadgeTitle"
+                android:ellipsize="marquee"
+                android:fadingEdge="horizontal"
+                android:singleLine="true"
+                android:text="@string/meetingtime"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/branches_recycler"
+            app:queryHint="@string/searchgroups"
+            app:defaultQueryHint="@string/searchgroups"
+            android:layout_marginBottom="@dimen/padding_small">
+
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+
+    </LinearLayout>
+
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

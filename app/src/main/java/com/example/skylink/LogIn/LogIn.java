@@ -18,6 +18,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.skylink.Contributions.contributions_home;
+import com.example.skylink.HomeActivity;
 import com.example.skylink.MainActivity;
 import com.example.skylink.R;
 import com.example.skylink.Utility.AppUtilits;
@@ -35,7 +36,7 @@ import retrofit2.Response;
 public class LogIn extends AppCompatActivity {
 
     Context context;
-    TextView  signup_btn;
+    TextView  signup_btn,change_pass;
     LinearLayout login_btn;
     EditText id_number, password;
     SharedPreferenceActivity sharedPreferenceActivity;
@@ -57,6 +58,7 @@ public class LogIn extends AppCompatActivity {
         sharedPreferenceActivity.cleaItem(Constant.USER_DATA);
         login_btn = findViewById(R.id.login_btn);
         signup_btn = findViewById(R.id.signup_btn);
+        change_pass = findViewById(R.id.change_pass_btn);
 
         id_number = findViewById(R.id.id_number);
         password = findViewById(R.id.password);
@@ -69,6 +71,13 @@ public class LogIn extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        change_pass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LogIn.this,ResetPassword.class);
+                startActivity(intent);
+            }
+        });
 
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,7 +86,7 @@ public class LogIn extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Invalid username",Toast.LENGTH_LONG).show();
 
                 }else if (DataValidation.isNotValidPassword(password.getText().toString())){
-                    Toast.makeText(getApplicationContext(),"Invalid password",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Password should be at least 6 characters",Toast.LENGTH_LONG).show();
 
                 }else {
 
@@ -113,11 +122,12 @@ public class LogIn extends AppCompatActivity {
                             Log.e(TAG, "  user data "+  response.body().getInformation());
                             sharedPreferenceActivity.putItem(Constant.USER_DATA, response.body().getInformation().getUserId());
                             sharedPreferenceActivity.putItem(Constant.ID_NUMBER, response.body().getInformation().getIdNumber());
-                            sharedPreferenceActivity.putItem(Constant.FIRST_NAME, response.body().getInformation().getFirstName());
-                            sharedPreferenceActivity.putItem(Constant.LAST_NAME, response.body().getInformation().getLastName());
-                            sharedPreferenceActivity.putItem(Constant.USER_name, response.body().getInformation().getUsername());
+                            sharedPreferenceActivity.putItem(Constant.FULL_NAME, response.body().getInformation().getFullName());
                             sharedPreferenceActivity.putItem(Constant.USER_email, response.body().getInformation().getEmail());
                             sharedPreferenceActivity.putItem(Constant.USER_phone, response.body().getInformation().getPhoneNumber());
+                            sharedPreferenceActivity.putItem(Constant.USER_ROLE, response.body().getInformation().getRole());
+                            sharedPreferenceActivity.putItem(Constant.USER_BRANCH, response.body().getInformation().getBranch());
+
 
 
                             AppUtilits.destroyDialog(progressbar);

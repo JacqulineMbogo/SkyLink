@@ -18,7 +18,7 @@
         <ImageView
             android:id="@+id/logo_image"
             android:layout_width="wrap_content"
-            android:layout_height="200dp"
+            android:layout_height="100dp"
             android:layout_margin="10dp"
             android:layout_gravity="center"
             android:src="@drawable/account" />
@@ -46,7 +46,7 @@
                     android:layout_gravity="center"
                     android:padding="@dimen/padding_medium"
                     android:layout_margin="@dimen/padding_medium"
-                    android:text="@string/firstname"
+                    android:text="@string/name"
                     android:textStyle="bold"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="@color/text_color" />
@@ -64,39 +64,7 @@
                     />
 
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:orientation="horizontal">
 
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:padding="@dimen/padding_medium"
-                    android:layout_margin="@dimen/padding_medium"
-                    android:text="@string/lastname"
-                    android:textStyle="bold"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textColor="@color/text_color" />
-
-                <TextView
-                    android:id="@+id/lname"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:padding="@dimen/padding_medium"
-                    android:layout_margin="@dimen/padding_medium"
-
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    />
-
-            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -130,39 +98,7 @@
                     />
 
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:orientation="horizontal">
 
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:padding="@dimen/padding_medium"
-                    android:layout_margin="@dimen/padding_medium"
-                    android:text="@string/username"
-                    android:textStyle="bold"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textColor="@color/text_color" />
-
-                <TextView
-                    android:id="@+id/username"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:padding="@dimen/padding_medium"
-                    android:layout_margin="@dimen/padding_medium"
-
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    />
-
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"

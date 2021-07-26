@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -40,10 +41,11 @@ public class MainActivity extends AppCompatActivity {
 
     Context context;
     SharedPreferenceActivity sharedPreferenceActivity;
-    Button contributions, loans, account, feedback, withdraw,about;
     RelativeLayout training;
-    TextView logout,count;
+    TextView mygroupsText,todaygroupsText,count;
+    LinearLayout mygroupsLinear,todaygroupsLinear,newgroupsLinear;
     String TAG = "Main";
+    String member_id;
    /* private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -81,90 +83,44 @@ public class MainActivity extends AppCompatActivity {
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);*/
 
         context= this;
+
+        this.setTitle("Home");
         sharedPreferenceActivity = new SharedPreferenceActivity(context);
 
-        contributions = findViewById(R.id.contributions);
-        loans = findViewById(R.id.loans);
-        account = findViewById(R.id.account);
-        feedback = findViewById(R.id.feedback);
-        withdraw = findViewById(R.id.withdraw);
-        about = findViewById(R.id.about);
-        logout = findViewById(R.id.logout);
+
+
+
+        newgroupsLinear = findViewById(R.id.newgroupsLinear);
+        mygroupsLinear = findViewById(R.id.mygroupsLinear);
+        todaygroupsLinear = findViewById(R.id.todaygroupsLinear);
+        //logout = findViewById(R.id.logout);
         training = findViewById(R.id.training);
         count = findViewById(R.id.count);
 
 
 
-        contributions.setOnClickListener(new View.OnClickListener() {
+        todaygroupsLinear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent( MainActivity.this, contributions_home.class);
-                startActivity(intent);
+                Intent intent1 = new Intent( MainActivity.this, HomeActivity.class);
 
-            }
-        });
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent intent = new Intent( MainActivity.this, LogIn.class);
-                startActivity(intent);
-
-            }
-        });
-
-      /*  withdraw.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent intent = new Intent( MainActivity.this, withdraw_home.class);
-                startActivity(intent);
-
-            }
-        });*/
-        account.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent intent1 = new Intent( MainActivity.this, acount_home.class);
                 startActivity(intent1);
+
             }
         });
-        loans.setOnClickListener(new View.OnClickListener() {
+
+        mygroupsLinear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent intent1 = new Intent( MainActivity.this, loans_home.class);
+                Intent intent1 = new Intent( MainActivity.this, HomeActivity.class);
                 startActivity(intent1);
             }
         });
 
-        feedback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                Intent intent1 = new Intent( MainActivity.this, FeedbackHistory.class);
-                startActivity(intent1);
-            }
-        });
-        about.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                Intent intent1 = new Intent( MainActivity.this, About.class);
-                startActivity(intent1);
-            }
-        });
-
-        training.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent11 = new Intent( MainActivity.this, training_home.class);
-                startActivity(intent11);
-            }
-        });
 
 getNotification();
 
@@ -188,7 +144,7 @@ getNotification();
                         //    Log.e(TAG, "  ss sixe 2 ");
                         if (response.body().getStatus() == 1) {
                             //      Log.e(TAG, "  ss sixe 3 ");
-                            Log.e(TAG, " size is  "+ String.valueOf(response.body().getInformation().size()));
+                            Log.e(TAG, " size is  "+ sharedPreferenceActivity.getItem("member_id"));
 
                             count.setText(String.valueOf(response.body().getInformation().size()));
 
